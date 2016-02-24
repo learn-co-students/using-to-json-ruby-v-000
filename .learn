@@ -1,7 +1,12 @@
 tags:
-  - tag_1
-  - tag_2
+  - apis
+  - json
+  - to_json
+  - serialization
+  - jquery
+  - ajax
+  - rails
 languages:
-  - language_1
-  - language_1
+  - ruby
+  - javascript
 resources: 0
