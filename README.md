@@ -98,7 +98,7 @@ A good API endpoint should return *only* the data that is needed,
 nothing more. So how do we get rid of that stuff?
 
 It turns out `to_json` gives us ways to exclude data as well, using the
-`only` option, similar to how we'd specify certain routes for a resoure.
+`only` option, similar to how we'd specify certain routes for a resource.
 
 ```ruby
 # posts_controller.rb
@@ -212,3 +212,5 @@ You're probably thinking about that `to_json` call up there and noticing
 how it went from very simple to a little complex for just a few fields,
 and worrying about what you'll have to do when you're serializing a
 *big* object model? Don't worry. We'll get there.
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/using-to-json-ruby'>Using to_json</a> on Learn.co and start learning to code for free.</p>
