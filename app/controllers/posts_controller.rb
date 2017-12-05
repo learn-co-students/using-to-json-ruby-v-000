@@ -6,6 +6,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html {render :show} #lets you choose which format - can type .html or .json at end of route
+      format.json {render json: @post.to_json(only: [:title, :description, :id], include: [author: { only: [:name]}]) }
+    end
   end
 
   def new
@@ -28,7 +33,8 @@ class PostsController < ApplicationController
 
   def post_data
     post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
+    render json: post.to_json(only: [:title, :description, :id], include: [author: {only: [:name]}])
+    # can use only on main and included objects, author must be passed in an array for include
   end
 
 private
