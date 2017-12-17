@@ -20,7 +20,7 @@ This is something people do every day in Rails, so there has to be a better way,
 Of course there is. Rails provides the `to_json` method which will take our object and, well, convert it to JSON. Let's see it in action. In our controller, let's swap our call to the `PostSerializer` for a `to_json`.
 
 ```ruby
-# posts_controller.rb
+# posts_controller.rsb
 # ...
   def post_data
     post = Post.find(params[:id])
