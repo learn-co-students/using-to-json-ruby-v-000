@@ -6,6 +6,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @post.to_json(
+                      only: [:id, :title, :description],
+                      include: [ :author => { only: [:name] } ]
+                      )}
+    end
   end
 
   def new
@@ -28,7 +35,7 @@ class PostsController < ApplicationController
 
   def post_data
     post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
+    render json: post.to_json(only: [:id, :title, :description], include: [:author => {only: [:name]}])
   end
 
 private
