@@ -1,0 +1,19 @@
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/byebug-10.0.2/ext/byebug
+/Users/mikekruszewski/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180522-85618-16gn9zk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20180522-85618-5ktt6j/byebug

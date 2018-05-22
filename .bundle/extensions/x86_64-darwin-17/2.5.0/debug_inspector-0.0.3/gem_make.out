@@ -1,0 +1,15 @@
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/mikekruszewski/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180522-85618-1c4vska.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/mikekruszewski/Development/flatiron/Javascript-In-Rails/using-to-json-ruby-v-000/.bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 debug_inspector.bundle ./.gem.20180522-85618-pbc6g3
