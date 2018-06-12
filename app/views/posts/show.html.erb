@@ -1,4 +1,4 @@
-<div class="authorName"><%= @post.author.name %></div>
+<div class="authorName"><%= @post.author.name if @post.author %></div>
 <a href="#" class="js-next" data-id="<%=@post.id%>">Next...</a>
 <h1 class="postTitle"><%= @post.title %></h1>
 <p class="postBody"><%= @post.description %></p>
@@ -7,7 +7,7 @@
 $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/posts/" + nextId + "/post_data", function(data) {
+    $.get("/posts/" + nextId + ".json", function(data) {
       $(".authorName").text(data["author"]["name"]);
       $(".postTitle").text(data["title"]);
       $(".postBody").text(data["description"]);
