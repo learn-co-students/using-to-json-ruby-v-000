@@ -1,4 +1,6 @@
 class PostSerializer
+
+
   def self.serialize(post)
 
     # start with the open brace to create a valid JSON object
