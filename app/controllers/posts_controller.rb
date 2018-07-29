@@ -6,6 +6,12 @@ class PostsController < ApplicationController
   end
 
   def show
+    # NOTE : Deciding what to display here rather than using "post_data" route
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @post.to_json(only: [:title, :description, :id], include: [author: { only: [:name]}]) }
+    end
   end
 
   def new
@@ -28,7 +34,15 @@ class PostsController < ApplicationController
 
   def post_data
     post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
+    
+    # NOTE : Swap the serializer for "to_json" 
+      # render json: post.to_json
+      
+    # NOTE : Include associations using the "include" option
+      # render json: post.to_json(include: :author)
+      
+    # NOTE : Exclude unnecessary information using the "only" option -- works on both the main object AND associated (though need to pass the associated further as a param)
+    render json: post.to_json(only: [:title, :description, :id], include: [ author: { only: [:name]}])
   end
 
 private
