@@ -4,7 +4,8 @@
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $(".js-more").on('click', function() {
+  $(".js-more").on('click', function(e) {
+    e.preventDefault();
     var id = $(this).data("id");
     $.get("/posts/" + id + "/post_data", function(data) {
       // Replace text of body-id div
