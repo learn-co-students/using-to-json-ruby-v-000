@@ -2,8 +2,8 @@
 
 ## Objectives
 
-1. Use the `to_json` method to render an object as JSON.
-2. Explain how to render different formats from the same controller action.
+1.  Use the `to_json` method to render an object as JSON.
+2.  Explain how to render different formats from the same controller action.
 
 ## Lesson
 
@@ -75,7 +75,7 @@ If we browse to `/posts/id/post_data`, we can see the raw JSON of our object. It
 
 It's great that `to_json` gives us all this, but we don't really need all of it.
 
-A good API endpoint should return *only* the data that is needed, nothing more. So how do we get rid of that stuff?
+A good API endpoint should return _only_ the data that is needed, nothing more. So how do we get rid of that stuff?
 
 It turns out `to_json` gives us ways to exclude data as well, using the `only` option, similar to how we'd specify certain routes for a resource.
 
@@ -115,7 +115,7 @@ If we think about what we've been doing when we load `/posts/id/post_data`, we'r
 
 Given what we know about REST, and about DRY (don't repeat yourself), it seems like the `post_data` route and action are redundant. If we just want to request the post resource for `show`, we should be able to do that in one place.
 
-In the desktop application world, we identify formats by *file extension*, so we know that `file.txt` is a plain text file, and `file.gif` is an awesome animated gif file.
+In the desktop application world, we identify formats by _file extension_, so we know that `file.txt` is a plain text file, and `file.gif` is an awesome animated gif file.
 
 ![reaganaut](http://i.giphy.com/MCKQEmHkUyGf6.gif)
 
@@ -165,6 +165,6 @@ Instead of doing a `$.get()` to `/posts/id/post_data`, we are now getting `/post
 
 We've seen how to use `to_json` to easily serialize an object, how to customize the serialized output, and how to modify our actions to respond with different formats.
 
-You're probably thinking about that `to_json` call up there and noticing how it went from very simple to a little complex for just a few fields, and worrying about what you'll have to do when you're serializing a *big* object model? Don't worry. We'll get there.
+You're probably thinking about that `to_json` call up there and noticing how it went from very simple to a little complex for just a few fields, and worrying about what you'll have to do when you're serializing a _big_ object model? Don't worry. We'll get there.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/using-to-json-ruby'>Using to_json</a> on Learn.co and start learning to code for free.</p>
