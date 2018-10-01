@@ -21,7 +21,12 @@
     <%= f.text_field :description %>
   </div>
 
+
   <div class="actions">
-    <%= f.submit %>
+    <%if @edit_post%>
+      <%= f.submit "Update Post"%>
+    <%else%>
+      <%= f.submit "Submit Post"%>
+    <%end%>
   </div>
 <% end %>
