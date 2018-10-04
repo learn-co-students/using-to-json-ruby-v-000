@@ -1,48 +1,36 @@
 require 'rails_helper'
 
-describe 'navigate' do
+describe 'post_path' do
   before do
-    @post = Post.create(title: "My Post", description: "My post desc")
+    @author = Author.create(name: 'Cormac McCarthy')
+    @post = Post.create(title: 'My Post', description: 'My post desc', author: @author)
   end
 
-  it 'shows the title on the show page in a h1 tag' do
+  it 'responds correctly' do
     visit post_path(@post)
-    expect(page).to have_css("h1", text: "My Post")
+    expect(page.status_code).to eq(200), 'post_path is not responding correctly'
   end
 
-  it 'to post pages' do
+  it 'shows the appropriate post information' do
     visit post_path(@post)
-    expect(page.status_code).to eq(200)
-  end
-
-  it 'shows the description on the show page in a p tag' do
-    visit post_path(@post)
-    expect(page).to have_css("p", text: "My post desc")
+    expect(page).to have_css('h1', text: 'My Post'), 'show.html is not rendering correct content'
   end
 end
 
-describe 'form' do
-  it 'shows a new form that submits content and redirects and prints out params' do
-    visit new_post_path
-
-    fill_in 'title', with: "My post title"
-    fill_in 'description', with: "My post description"
-
-    click_on "Submit Post"
-
-    expect(page).to have_content("My post title")
+describe 'post_controller' do
+  before do
+    @author = Author.create(name: 'Cormac McCarthy')
+    @post = Post.create(title: 'My Post', description: 'My post desc', author: @author)
   end
 
-  it 'shows a new form that submits content and redirects and prints out params' do
-    @post = Post.create(title: "My Post", description: "My post desc")
+  it 'responds to json format request' do
+    visit post_path(id: @post.id, format: :json)
+    expect(page.status_code).to eq(200)
+  end
 
-    visit edit_post_path(@post)
-
-    fill_in 'post[title]', with: "My edit"
-    fill_in 'post[description]', with: "My post description"
-
-    click_on "Update Post"
-
-    expect(page).to have_content("My edit")
+  it 'returns appropriate json content' do
+    visit post_path(id: @post.id, format: :json)
+    expect(page.html).not_to include('<!DOCTYPE html>'), 'expected JSON to be returned, got HTML instead'
+    expect(JSON.parse(page.html)).to eq('author' => { 'name' => 'Cormac McCarthy' }, 'description' => 'My post desc', 'id' => 1, 'title' => 'My Post'), 'returned JSON does not match expected format/may be have incorrect content'
   end
 end
