@@ -190,6 +190,7 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 2.0)
   jquery-rails
+  pry
   pry-byebug
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
@@ -200,3 +201,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.16.2
