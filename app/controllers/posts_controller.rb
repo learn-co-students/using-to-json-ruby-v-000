@@ -5,7 +5,8 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @post = Post.new
@@ -17,7 +18,8 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     @post.update(post_params)
@@ -26,7 +28,7 @@ class PostsController < ApplicationController
 
   def post_data
     post = Post.find(params[:id])
-    render json: post.to_json
+    render json: post.to_json(include: :author)
   end
 
   private
