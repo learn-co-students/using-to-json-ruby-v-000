@@ -175,6 +175,7 @@ Now let's update the code in our `show.html.erb` to use the `show` route.
 # posts/show.html.erb
 # ...
 $(function () {
+  event.preventDefault()
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/posts/" + nextId + ".json", function(data) {
