@@ -1,20 +1,37 @@
 <div class="authorName"><%= @post.author.name %></div>
-<a href="#" class="js-next" data-id="<%=@post.id%>">Next...</a>
+<a href="#" class="js-next" data-id="<%=@post.id%>">Next...</a></br>
+<a href="#" class="js-previous" data-id="<%=@post.id%>">Previous...</a>
 <h1 class="postTitle"><%= @post.title %></h1>
 <p class="postBody"><%= @post.description %></p>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $(".js-next").on("click", function(event) {
-    event.preventDefault()
+  event.preventDefault()
+  $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/posts/" + nextId + "/post_data", function(data) {
+    $.get("/posts/" + nextId + ".json", function(data) {
       $(".authorName").text(data["author"]["name"]);
       $(".postTitle").text(data["title"]);
       $(".postBody").text(data["description"]);
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
+      $(".js-previous").attr("data-id", data["id"] )
     });
   });
 });
+$(function () {
+  event.preventDefault()
+  $(".js-previous").on("click", function() {
+    var prevId = parseInt($(".js-previous").attr("data-id")) - 1;
+    $.get("/posts/" + prevId + ".json", function(data) {
+      $(".authorName").text(data["author"]["name"]);
+      $(".postTitle").text(data["title"]);
+      $(".postBody").text(data["description"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+      $(".js-previous").attr("data-id", data["id"] )
+    });
+  });
+});
+
 </script>
