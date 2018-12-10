@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    # Making this change to send the pull request
     @post = Post.find(params[:id])
     respond_to do |format|
       format.html { render :show }
