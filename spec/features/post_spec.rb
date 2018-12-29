@@ -7,7 +7,7 @@ describe 'post_path' do
   end
 
   it 'responds correctly' do
-    visit post_path(@post)
+    visit posts_path(@post)
     expect(page.status_code).to eq(200), 'post_path is not responding correctly'
   end
 
