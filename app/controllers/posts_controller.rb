@@ -5,28 +5,48 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
-
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.create(post_params)
-    @post.save
-    redirect_to post_path(@post)
+    @author = Author.first_or_create(name: params[:post][:author])
+    @post = Post.new(post_params)
+    if @post.save
+      @post.author = @author
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
-  def edit; end
+
+  def show
+    @post = Post.find(params[:id])
+    @author = Author.find_by_id(@post.author_id)
+
+    respond_to do |format|
+      format.html { render :show }
+      # format.json { render json: @post }
+      format.json { render json: @post.to_json(
+        only: [:title, :description, :id],
+        include: [author: { only: [:name] }]
+      )}
+    end
+  end
+
+
+  def edit
+  end
 
   def update
     @post.update(post_params)
     redirect_to post_path(@post)
   end
 
-  def post_data
-    post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
+  def data
+    @post = Post.find(params[:id])
+    render json: PostSerializer.serialize(@post)
   end
 
   private
