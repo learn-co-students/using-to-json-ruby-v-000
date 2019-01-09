@@ -3,21 +3,6 @@
 <h1 class="postTitle"><%= @post.title %></h1>
 <p class="postBody"><%= @post.description %></p>
 
-<%# <script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-next").on("click", function(event) {
-    event.preventDefault()
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/posts/" + nextId + "/post_data", function(data) {
-      $(".authorName").text(data["author"]["name"]);
-      $(".postTitle").text(data["title"]);
-      $(".postBody").text(data["description"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", data["id"]);
-    });
-  });
-});
-</script> %>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
@@ -34,3 +19,19 @@ $(function () {
   });
 });
 </script>
+<%# <script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function(event) {
+    event.preventDefault()
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/posts/" + nextId + "/post_data", function(data) {
+      $(".authorName").text(data["author"]["name"]);
+      $(".postTitle").text(data["title"]);
+      $(".postBody").text(data["description"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script> %>
+
