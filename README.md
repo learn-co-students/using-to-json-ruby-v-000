@@ -1,6 +1,10 @@
 # Using to_json
 
 ## Objectives
+SEtting up endpoint
+1.) controller
+2.) config/routes
+3.)views
 
 1.  Use the `to_json` method to render an object as JSON.
 2.  Explain how to render different formats from the same controller action.
