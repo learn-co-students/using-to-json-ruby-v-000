@@ -5,6 +5,7 @@
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
+  $(function () {event.preventDefault()
   $(".js-next").on("click", function(event) {
     event.preventDefault()
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
@@ -14,6 +15,7 @@ $(function () {
       $(".postBody").text(data["description"]);
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
+      })
     });
   });
 });
