@@ -30,7 +30,7 @@ let's swap our call to the `PostSerializer` for a `to_json`.
 # ...
   def post_data
     post = Post.find(params[:id])
-    render json: post.to_json
+    render json: post.to_json(include: :author)
   end
 ```
 
@@ -209,4 +209,3 @@ worry. We'll get there.
 [jsonview]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/using-to-json-ruby'>Using to_json</a> on Learn.co and start learning to code for free.</p>
-
