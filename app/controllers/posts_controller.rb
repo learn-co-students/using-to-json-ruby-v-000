@@ -5,7 +5,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @post = set_post
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @post.to_json(only: [:title, :description, :id],
+                              include: [author: { only: [:name]}]) }
+    end
+  end
 
   def new
     @post = Post.new
@@ -24,10 +31,12 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  def post_data
-    post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
-  end
+# don't need this action since added to show action
+  # def post_data
+  #   post = set_post
+  #   render json: post.to_json(only: [:title, :description, :id],
+  #                             include: [ author: { only: [:name]}])
+  # end
 
   private
 
